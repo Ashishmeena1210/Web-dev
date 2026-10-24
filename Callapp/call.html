@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call Cards UI</title>
+  <link rel="stylesheet" href="call.css">
+</head>
+<body>
+
+  <!-- 1. CALL CARD (Main View) -->
+  <div class="widget-wrapper">
+    <div class="controls">
+      <button class="btn-circle">+</button>
+      <button class="btn-circle">&#8593;</button>
+      <button class="btn-circle">&#8595;</button>
+    </div>
+
+    <div class="card-stack">
+      <!-- <div class="card">
+
+        <div class="avatar-wrapper">
+          <img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Fatima Uma">
+        </div>
+
+        <h2 class="user-name">Fatima Uma</h2>
+
+        <div class="details">
+          <div class="row">
+            <span class="label">Home town</span>
+            <span class="value">Singapore</span>
+          </div>
+          <div class="row">
+            <span class="label">Bookings</span>
+            <span class="value">3 times</span>
+          </div>
+        </div>
+
+        
+        <div class="actions">
+          <button class="btn-call">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Call
+          </button>
+          <button class="btn-message">Message</button>
+        </div>
+
+      </div> -->
+    </div>
+
+    <div class="color-picker">
+      <div class="color-dot dot-black"></div>
+      <div class="color-dot dot-purple"></div>
+      <div class="color-dot dot-brown"></div>
+      <div class="color-dot dot-teal"></div>
+    </div>
+  </div>
+
+  <!-- 2. CREATE CARD (Form overlay centered on top) -->
+  <div class="form-container">
+    <h2 class="form-title">New Call</h2>
+    
+    <form class="call-form">
+      <div class="form-group">
+        <label for="imgUrl">Image URL</label>
+        <input type="text" id="imgUrl" placeholder="https://i.pinimg.com/736x/1f/1b/81/1f1b816fbed1fd28c132bdc6e8">
+      </div>
+
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="Ashish">
+      </div>
+
+      <div class="form-group">
+        <label for="hometown">Home Town</label>
+        <input type="text" id="hometown" placeholder="Indore">
+      </div>
+
+      <div class="form-group">
+        <label for="purpose">Purpose</label>
+        <input type="text" id="purpose" class="focused-input" placeholder="Call for Enquiry">
+      </div>
+
+      <div class="form-group">
+        <label>Category</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="category" value="Emergency">
+            <span class="custom-radio"></span>
+            Emergency
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="category" value="Important">
+            <span class="custom-radio"></span>
+            Important
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="category" value="Urgent">
+            <span class="custom-radio"></span>
+            Urgent
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="category" value="No Rush">
+            <span class="custom-radio"></span>
+            No Rush
+          </label>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">Create Note</button>
+        <button type="button" class="btn-close">Close</button>
+      </div>
+    </form>
+  </div>
+<script src="call.js"></script>
+</body>
+</html>

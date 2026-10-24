@@ -1,0 +1,441 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #ffffff;
+  position: relative;
+}
+
+/* =======================================
+   FORM CONTAINER (EXACT IMAGE FUNCTIONALITY)
+======================================= */
+/* 1. Default State: Show Call Card, Hide Form Card */
+/* .widget-wrapper {
+    display: none;
+  display: flex;
+  
+} */
+ .widget-wrapper {
+    display: inline;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.form-container {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  background: #242424;
+  padding: 24px;
+  border-radius: 22px;
+  width: 380px;
+}
+
+
+
+.form-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.call-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: #a0a0a5;
+  font-weight: 500;
+}
+
+.form-group input[type="text"] {
+  background-color: #333333;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 12px 16px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+}
+
+.form-group input[type="text"]::placeholder {
+  color: #7d7d82;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input.focused-input {
+  border-color: #7fa1c3;
+  box-shadow: 0 0 0 1px #7fa1c3;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #d1d1d6;
+  cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+  display: none;
+}
+
+.custom-radio {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #636366;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.radio-label input[type="radio"]:checked + .custom-radio {
+  border-color: #ffffff;
+  background-color: #ffffff;
+}
+
+.radio-label input[type="radio"]:checked + .custom-radio::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: #242424;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-submit {
+  background-color: #161616;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-close {
+  background-color: #5c0606;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =======================================
+   CALL CARD STYLES
+======================================= */
+/* .widget-wrapper {
+  display: flex;
+  display: none;
+  align-items: center;
+  gap: 24px;
+} */
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #2b2b2e;
+  border: 1px solid #3d3d40;
+  color: #a0a0a5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+/* =======================================
+   CARD STACK
+======================================= */
+
+.card-stack {
+  position: relative;
+  width: 360px;        /* 400 → 360 */
+  height: 330px;       /* 365 → 330 */
+  flex-shrink: 0;
+}
+
+
+/* =======================================
+   EVERY CARD
+======================================= */
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 330px;       /* 365 → 330 */
+
+  background-color: #2c2c2e;
+  border: 1px solid #3e3e42;
+  border-radius: 22px; /* 24 → 22 */
+
+  padding: 27px;       /* 30 → 27 */
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+
+  transition: all 0.3s ease;
+}
+
+
+/* =======================================
+   CARD STACKING
+======================================= */
+
+.card:nth-child(1) {
+  top: 0;
+  z-index: 5;
+}
+
+.card:nth-child(2) {
+  top: 7px;            /* 8 → 7 */
+  z-index: 4;
+}
+
+.card:nth-child(3) {
+  top: 14px;           /* 16 → 14 */
+  z-index: 3;
+}
+
+.card:nth-child(n + 4) {
+  top: 22px;           /* 24 → 22 */
+  z-index: 2;
+}
+
+
+/* =======================================
+   AVATAR
+======================================= */
+
+.avatar-wrapper {
+  margin-bottom: 32px; /* 35 → 32 */
+}
+
+.avatar {
+  width: 59px;         /* 65 → 59 */
+  height: 59px;        /* 65 → 59 */
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+/* =======================================
+   USER NAME
+======================================= */
+
+.user-name {
+  font-size: 25px;     /* 28 → 25 */
+  font-weight: 700;
+
+  margin-bottom: 25px; /* 28 → 25 */
+
+  color: #ffffff;
+}
+
+
+/* =======================================
+   DETAILS
+======================================= */
+
+.details {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;           /* 18 → 16 */
+
+  margin-bottom: 27px; /* 30 → 27 */
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 15px;     /* 17 → 15 */
+}
+
+.label {
+  color: #98989d;
+}
+
+.value {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+
+/* =======================================
+   ACTIONS
+======================================= */
+
+.actions {
+  display: flex;
+  align-items: center;
+
+  gap: 23px;            /* 25 → 23 */
+}
+
+.btn-call {
+  background-color: #000000;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 20px;
+
+  padding: 12px 25px;   /* 13x28 → ~12x25 */
+
+  font-size: 15px;      /* 16 → 15 */
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  cursor: pointer;
+}
+
+.btn-message {
+  background: none;
+  border: none;
+
+  color: #e5e5e7;
+
+  font-size: 15px;      /* 16 → 15 */
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+/* .user-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.label {
+  color: #98989d;
+}
+
+.value {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+} */
+
+.btn-call {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-message {
+  background: none;
+  border: none;
+  color: #e5e5e7;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.color-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.color-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot-black { background-color: #000000; }
+.dot-purple { background-color: #2e0854; }
+.dot-brown { background-color: #3b1700; }
+.dot-teal { background-color: #008080; }
