@@ -1,0 +1,10 @@
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore environment variables and secrets
+.env
+.env.*
+
+# Allow example environment file
+!.env.example
